@@ -40,7 +40,7 @@ class PdfDocument
      */
     const PDF_HEADER  = "%PDF-1.4\n%\xE2\xE3\xCF\xD3\n";
 
-
+    protected $_pdfHeaderVersion;
 
     /**
      * Pages collection
@@ -1177,7 +1177,7 @@ class PdfDocument
                 return $this->_trailer->getPDFString();
             } else {
                 $pdfData = $this->_trailer->getPDFString();
-                while ( strlen($pdfData) > 0 && ($byteCount = fwrite($outputStream, $pdfData)) != false ) {
+                while ( strlen((string) $pdfData) > 0 && ($byteCount = fwrite($outputStream, $pdfData)) != false ) {
                     $pdfData = substr($pdfData, $byteCount);
                 }
 
@@ -1208,7 +1208,7 @@ class PdfDocument
         if ($outputStream !== null) {
             if (!$newSegmentOnly) {
                 $pdfData = $this->_trailer->getPDFString();
-                while ( strlen($pdfData) > 0 && ($byteCount = fwrite($outputStream, $pdfData)) != false ) {
+                while ( strlen((string) $pdfData) > 0 && ($byteCount = fwrite($outputStream, $pdfData)) != false ) {
                     $pdfData = substr($pdfData, $byteCount);
                 }
             }
@@ -1236,12 +1236,12 @@ class PdfDocument
                 $xrefSection[]  = sprintf("%010d %05d n \n", $offset, $updateInfo->getGenNum());
 
                 $pdfBlock = $updateInfo->getObjectDump();
-                $offset += strlen($pdfBlock);
+                $offset += strlen((string) $pdfBlock);
 
                 if ($outputStream === null) {
                     $pdfSegmentBlocks[] = $pdfBlock;
                 } else {
-                    while ( strlen($pdfBlock) > 0 && ($byteCount = fwrite($outputStream, $pdfBlock)) != false ) {
+                    while ( strlen((string) $pdfBlock) > 0 && ($byteCount = fwrite($outputStream, $pdfBlock)) != false ) {
                         $pdfBlock = substr($pdfBlock, $byteCount);
                     }
                 }
@@ -1276,7 +1276,7 @@ class PdfDocument
 
             return implode('', $pdfSegmentBlocks);
         } else {
-            while ( strlen($pdfBlock) > 0 && ($byteCount = fwrite($outputStream, $pdfBlock)) != false ) {
+            while ( strlen((string) $pdfBlock) > 0 && ($byteCount = fwrite($outputStream, $pdfBlock)) != false ) {
                 $pdfBlock = substr($pdfBlock, $byteCount);
             }
 

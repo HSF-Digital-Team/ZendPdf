@@ -31,13 +31,13 @@ class Ascii85 implements StreamFilterInterface
     public static function encode($data, $params = null)
     {
         $output = '';
-        $dataLength = strlen($data);
+        $dataLength = strlen((string) $data);
 
         for ($i = 0; $i < $dataLength; $i += 4) {
             //convert the 4 characters into a 32-bit number
             $chunk = substr($data, $i, 4);
 
-            if (strlen($chunk) < 4) {
+            if (strlen((string) $chunk) < 4) {
                 //partial chunk
                 break;
             }
@@ -112,8 +112,8 @@ class Ascii85 implements StreamFilterInterface
             return '';
         }
 
-        $data = substr($data, 0, (strlen($data) - 2));
-        $dataLength = strlen($data);
+        $data = substr($data, 0, (strlen((string) $data) - 2));
+        $dataLength = strlen((string) $data);
 
         for ($i = 0; $i < $dataLength; $i += 5) {
             $b = 0;
@@ -126,7 +126,7 @@ class Ascii85 implements StreamFilterInterface
 
             $c = substr($data, $i, 5);
 
-            if(strlen($c) < 5) {
+            if(strlen((string) $c) < 5) {
                 //partial chunk
                 break;
             }
@@ -145,7 +145,7 @@ class Ascii85 implements StreamFilterInterface
         if ($i < $dataLength) {
             $value = 0;
             $chunk = substr($data, $i);
-            $partialLength = strlen($chunk);
+            $partialLength = strlen((string) $chunk);
 
             //pad the rest of the chunk with u's
             //until the lenght of the chunk is 5

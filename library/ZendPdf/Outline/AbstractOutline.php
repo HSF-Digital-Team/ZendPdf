@@ -35,6 +35,11 @@ abstract class AbstractOutline implements
      * @var boolean
      */
     protected $_open = false;
+    protected $_title;
+    protected $_color;
+    protected $_italic;
+    protected $_bold;
+    protected $_target;
 
     /**
      * Array of child outlines (array of \ZendPdf\Outline\AbstractOutline objects)

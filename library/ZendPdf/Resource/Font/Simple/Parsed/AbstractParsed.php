@@ -24,6 +24,7 @@ use ZendPdf\InternalType;
  */
 abstract class AbstractParsed extends \ZendPdf\Resource\Font\Simple\AbstractSimple
 {
+    protected $_isMonospaced;
     /**
      * Object constructor
      *

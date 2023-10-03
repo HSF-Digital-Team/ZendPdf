@@ -115,7 +115,7 @@ class StructureParser
                         throw new Exception\CorruptedPdfException(sprintf('PDF file cross-reference table syntax error. Offset - 0x%X. Offset must contain only digits.', $this->_stringParser->offset));
                     }
                     // Force $objectOffset to be treated as decimal instead of octal number
-                    for ($numStart = 0; $numStart < strlen($objectOffset)-1; $numStart++) {
+                    for ($numStart = 0; $numStart < strlen((string) $objectOffset)-1; $numStart++) {
                         if ($objectOffset[$numStart] != '0') {
                             break;
                         }
@@ -133,7 +133,7 @@ class StructureParser
                         throw new Exception\CorruptedPdfException(sprintf('PDF file cross-reference table syntax error. Offset - 0x%X. Offset must contain only digits.', $this->_stringParser->offset));
                     }
                     // Force $objectOffset to be treated as decimal instead of octal number
-                    for ($numStart = 0; $numStart < strlen($genNumber)-1; $numStart++) {
+                    for ($numStart = 0; $numStart < strlen((string) $genNumber)-1; $numStart++) {
                         if ($genNumber[$numStart] != '0') {
                             break;
                         }
@@ -222,7 +222,7 @@ class StructureParser
             $streamOffset = 0;
 
             $size    = $entryField1Size + $entryField2Size + $entryField3Size;
-            $entries = strlen($xrefStreamData)/$size;
+            $entries = strlen((string) $xrefStreamData)/$size;
 
             for ($count = 0; $count < $sections; $count++) {
                 if ($trailerDict->Index !== null) {
@@ -338,7 +338,7 @@ class StructureParser
             $byteCount = filesize($source);
 
             $data = fread($pdfFile, $byteCount);
-            $byteCount -= strlen($data);
+            $byteCount -= strlen((string) $data);
             while ( $byteCount > 0 && ($nextBlock = fread($pdfFile, $byteCount)) != false ) {
                 $data .= $nextBlock;
                 $byteCount -= strlen($nextBlock);

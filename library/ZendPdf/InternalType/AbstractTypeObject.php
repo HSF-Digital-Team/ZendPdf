@@ -36,6 +36,8 @@ abstract class AbstractTypeObject
      */
     private $_parentObject = null;
 
+    protected $value;
+
     /**
      * Return type of the element.
      * See ZPDFPDFConst for possible values

@@ -41,6 +41,7 @@ abstract class AbstractResource
      * @var \ZendPdf\ObjectFactory
      */
     protected $_objectFactory;
+    protected $_objFactory;
 
     /**
      * Main resource object
@@ -48,6 +49,11 @@ abstract class AbstractResource
      * @var \ZendPdf\InternalType\IndirectObject
      */
     protected $_resource;
+
+    protected $_pageDictionary;
+    public $_attached;
+    protected $_style;
+    protected $_font;
 
     /**
      * Object constructor.

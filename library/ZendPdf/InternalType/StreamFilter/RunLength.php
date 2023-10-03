@@ -32,7 +32,7 @@ class RunLength implements StreamFilterInterface
         $chainStartOffset = 0;
         $offset = 0;
 
-        while ($offset < strlen($data)) {
+        while ($offset < strlen((string) $data)) {
             // Do not encode 2 char chains since they produce 2 char run sequence,
             // but it takes more time to decode such output (because of processing additional run)
             if (($repeatedCharChainLength = strspn($data, $data[$offset], $offset + 1, 127) + 1)  >  2) {
@@ -78,7 +78,7 @@ class RunLength implements StreamFilterInterface
      */
     public static function decode($data, $params = null)
     {
-        $dataLength = strlen($data);
+        $dataLength = strlen((string) $data);
         $output = '';
         $offset = 0;
 

@@ -56,7 +56,7 @@ class StreamContent extends AbstractTypeObject
      */
     public function length()
     {
-        return strlen($this->value->getRef());
+        return strlen((string) $this->value->getRef());
     }
 
     /**

@@ -77,7 +77,7 @@ class StringObject extends AbstractTypeObject
             $offset = strcspn($chunk, "\n\r\t\x08\x0C()\\");
             $chunkOut = substr($chunk, 0, $offset);
 
-            while ($offset < strlen($chunk)) {
+            while ($offset < strlen((string) $chunk)) {
                 $nextCode = ord($chunk[$offset++]);
                 switch ($nextCode) {
                     // "\n" - line feed (LF)
@@ -158,10 +158,10 @@ class StringObject extends AbstractTypeObject
         $outEntries = array();
 
         $offset = 0;
-        while ($offset < strlen($str)) {
+        while ($offset < strlen((string) $str)) {
             // Searche for the next escaped character/sequence
             $escapeCharOffset = strpos($str, '\\', $offset);
-            if ($escapeCharOffset === false  ||  $escapeCharOffset == strlen($str) - 1) {
+            if ($escapeCharOffset === false  ||  $escapeCharOffset == strlen((string)$str) - 1) {
                 // There are no escaped characters or '\' char has came at the end of string
                 $outEntries[] = substr($str, $offset);
                 break;

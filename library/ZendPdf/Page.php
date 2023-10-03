@@ -283,7 +283,7 @@ class Page
                     // should be in "x:y" or "x:y:" form
             }
 
-            $pageDim = explode(':', $param1);
+            $pageDim = explode(':', (string) $param1);
             if(count($pageDim) == 2  ||  count($pageDim) == 3) {
                 $pageWidth  = $pageDim[0];
                 $pageHeight = $pageDim[1];

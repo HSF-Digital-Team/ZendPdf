@@ -155,7 +155,7 @@ class TrimmedTable extends AbstractCmap
     {
         /* Sanity check: The table should be at least 9 bytes in size.
          */
-        $actualLength = strlen($cmapData);
+        $actualLength = strlen((string) $cmapData);
         if ($actualLength < 9) {
             throw new Exception\CorruptedFontException('Insufficient table data');
         }

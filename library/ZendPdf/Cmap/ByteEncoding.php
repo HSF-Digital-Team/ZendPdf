@@ -135,7 +135,7 @@ class ByteEncoding extends AbstractCmap
     {
         /* Sanity check: This table must be exactly 262 bytes long.
          */
-        $actualLength = strlen($cmapData);
+        $actualLength = strlen((string) $cmapData);
         if ($actualLength != 262) {
             throw new Exception\CorruptedFontException('Insufficient table data');
         }

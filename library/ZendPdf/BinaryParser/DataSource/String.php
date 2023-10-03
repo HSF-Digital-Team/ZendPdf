@@ -50,7 +50,7 @@ class String extends AbstractDataSource
         if (empty($string)) {
             throw new Exception\InvalidArgumentException('String is empty');
         }
-        $this->_size = strlen($string);
+        $this->_size = strlen((string) $string);
         $this->_string = $string;
     }
 
