@@ -52,12 +52,12 @@ class BinaryStringObject extends StringObject
         $chunks = array();
         $offset = 0;
         $length = 0;
-        while ($offset < strlen($inStr)) {
+        while ($offset < strlen((string) $inStr)) {
             // Collect hexadecimal characters
             $start = $offset;
             $offset += strspn($inStr, "0123456789abcdefABCDEF", $offset);
             $chunks[] = substr($inStr, $start, $offset - $start);
-            $length += strlen(end($chunks));
+            $length += strlen((string) end($chunks));
 
             // Skip non-hexadecimal characters
             $offset += strcspn($inStr, "0123456789abcdefABCDEF", $offset);

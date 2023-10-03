@@ -57,6 +57,7 @@ abstract class AbstractCidFont extends FontResource\AbstractFont
      * @var integer
      */
     protected $_missingCharWidth = 0;
+    protected $_isMonospaced;
 
 
     /**
@@ -331,7 +332,7 @@ abstract class AbstractCidFont extends FontResource\AbstractFont
         /* Calculate the score by doing a lookup for each character.
          */
         $score = 0;
-        $maxIndex = strlen($string);
+        $maxIndex = strlen((string)$string);
         for ($i = 0; $i < $maxIndex; $i++) {
             /**
              * @todo Properly handle characters encoded as surrogate pairs.

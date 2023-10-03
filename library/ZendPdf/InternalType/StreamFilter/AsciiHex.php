@@ -48,7 +48,7 @@ class AsciiHex implements StreamFilterInterface
         $oddCode = true;
         $commentMode = false;
 
-        for ($count = 0; $count < strlen($data)  &&  $data[$count] != '>'; $count++) {
+        for ($count = 0; $count < strlen((string) $data)  &&  $data[$count] != '>'; $count++) {
             $charCode = ord($data[$count]);
 
             if ($commentMode) {

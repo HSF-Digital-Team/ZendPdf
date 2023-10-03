@@ -66,7 +66,7 @@ class StreamObject extends IndirectObject
 
         if ($dictionary === null) {
             $this->_dictionary    = new DictionaryObject();
-            $this->_dictionary->Length = new NumericObject(strlen( $val ));
+            $this->_dictionary->Length = new NumericObject(strlen((string) $val));
             $this->_streamDecoded = true;
         } else {
             $this->_dictionary    = $dictionary;

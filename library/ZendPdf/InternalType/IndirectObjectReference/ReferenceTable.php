@@ -83,7 +83,7 @@ class ReferenceTable
      */
     public function addReference($ref, $offset, $inuse = true)
     {
-        $refElements = explode(' ', $ref);
+        $refElements = explode(' ', (string) $ref);
         if (!is_numeric($refElements[0]) || !is_numeric($refElements[1]) || $refElements[2] != 'R') {
             throw new Exception\InvalidArgumentException("Incorrect reference: '$ref'");
         }

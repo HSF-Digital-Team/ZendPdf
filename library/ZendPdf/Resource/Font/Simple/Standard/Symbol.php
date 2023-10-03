@@ -31,6 +31,7 @@ use ZendPdf\Cmap;
  */
 class Symbol extends AbstractStandard
 {
+    protected $_isMonospaced;
     /**** Instance Variables ****/
 
 
@@ -372,7 +373,7 @@ class Symbol extends AbstractStandard
          * @todo Properly handle characters encoded as surrogate pairs.
          */
         $encodedString = '';
-        for ($i = 0; $i < strlen($string); $i++) {
+        for ($i = 0; $i < strlen((string) $string); $i++) {
             $characterCode = (ord($string[$i++]) << 8) | ord($string[$i]);
             if (isset($this->_toFontEncoding[$characterCode])) {
                 $encodedString .= $this->_toFontEncoding[$characterCode];
@@ -399,7 +400,7 @@ class Symbol extends AbstractStandard
     public function decodeString($string, $charEncoding)
     {
         $decodedString = '';
-        for ($i = 0; $i < strlen($string); $i++) {
+        for ($i = 0; $i < strlen((string) $string); $i++) {
             $characterCode = ord($string[$i]);
             if (isset($this->_fromFontEncoding[$characterCode])) {
                 $decodedString .= $this->_fromFontEncoding[$characterCode];

@@ -31,6 +31,7 @@ use ZendPdf\Cmap;
  */
 class CourierBold extends AbstractStandard
 {
+    protected $_isMonospaced;
     /**** Public Interface ****/
 
 

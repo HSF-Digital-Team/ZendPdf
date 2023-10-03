@@ -245,7 +245,7 @@ abstract class AbstractCmap
      */
     protected function _extractInt2(&$data, $index)
     {
-        if (($index < 0) | (($index + 1) > strlen($data))) {
+        if (($index < 0) | (($index + 1) > strlen((string) $data))) {
             throw new Exception\CorruptedFontException("Index out of range: $index");
         }
         $number = ord($data[$index]);
@@ -270,7 +270,7 @@ abstract class AbstractCmap
      */
     protected function _extractUInt2(&$data, $index)
     {
-        if (($index < 0) | (($index + 1) > strlen($data))) {
+        if (($index < 0) | (($index + 1) > strlen((string) $data))) {
             throw new Exception\CorruptedFontException("Index out of range: $index");
         }
         $number = (ord($data[$index]) << 8) | ord($data[++$index]);
@@ -295,7 +295,7 @@ abstract class AbstractCmap
      */
     protected function _extractUInt4(&$data, $index)
     {
-        if (($index < 0) | (($index + 3) > strlen($data))) {
+        if (($index < 0) | (($index + 3) > strlen((string) $data))) {
             throw new Exception\CorruptedFontException("Index out of range: $index");
         }
         $number = (ord($data[$index]) << 24) | (ord($data[++$index]) << 16) |

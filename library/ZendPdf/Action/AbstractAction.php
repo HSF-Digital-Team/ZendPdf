@@ -51,6 +51,8 @@ abstract class AbstractAction extends Pdf\InternalStructure\NavigationTarget imp
      */
     public $next = array();
 
+    protected $childOutlines;
+
     /**
      * Object constructor
      *

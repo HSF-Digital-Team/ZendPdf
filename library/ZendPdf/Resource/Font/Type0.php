@@ -51,7 +51,7 @@ class Type0 extends AbstractFont
      * @var \ZendPdf\Resource\Font\CidFont\AbstractCidFont
      */
     private $_descendantFont;
-
+    protected $_isMonospaced;
 
     /**
      * Generate ToUnicode character map data

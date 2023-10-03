@@ -68,7 +68,7 @@ class NameObject extends AbstractTypeObject
         $outStr = '';
 
         /** @todo switch implementation to strspn() usage!!!!!!! */
-        for ($count = 0; $count < strlen($inStr); $count++) {
+        for ($count = 0; $count < strlen((string) $inStr); $count++) {
             $nextCode = ord($inStr[$count]);
 
             switch ($inStr[$count]) {
@@ -123,7 +123,7 @@ class NameObject extends AbstractTypeObject
         $outStr = '';
 
         /** @todo switch implementation to strspn() usage!!!!!!! */
-        for ($count = 0; $count < strlen($inStr); $count++) {
+        for ($count = 0; $count < strlen((string) $inStr); $count++) {
             if ($inStr[$count] != '#' )  {
                 $outStr .= $inStr[$count];
             } else {

@@ -306,7 +306,7 @@ class SegmentToDelta extends AbstractCmap
     {
         /* Sanity check: The table should be at least 23 bytes in size.
          */
-        $actualLength = strlen($cmapData);
+        $actualLength = strlen((string) $cmapData);
         if ($actualLength < 23) {
             throw new Exception\CorruptedFontException('Insufficient table data');
         }

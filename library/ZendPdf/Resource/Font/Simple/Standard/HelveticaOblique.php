@@ -31,6 +31,7 @@ use ZendPdf\Cmap;
  */
 class HelveticaOblique extends AbstractStandard
 {
+    protected $_isMonospaced;
     /**** Public Interface ****/
 
 
