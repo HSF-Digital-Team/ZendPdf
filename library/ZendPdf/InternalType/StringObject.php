@@ -160,7 +160,7 @@ class StringObject extends AbstractTypeObject
         $offset = 0;
         while ($offset < strlen((string) $str)) {
             // Searche for the next escaped character/sequence
-            $escapeCharOffset = strpos($str, '\\', $offset);
+            $escapeCharOffset = strpos((string) $str, '\\', $offset);
             if ($escapeCharOffset === false  ||  $escapeCharOffset == strlen((string)$str) - 1) {
                 // There are no escaped characters or '\' char has came at the end of string
                 $outEntries[] = substr($str, $offset);
