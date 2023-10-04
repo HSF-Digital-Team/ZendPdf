@@ -39,7 +39,7 @@ class NameObject extends AbstractTypeObject
     public function __construct($val)
     {
         settype($val, 'string');
-        if (strpos($val,"\x00") !== false) {
+        if (strpos((string) $val,"\x00") !== false) {
             throw new Exception\RuntimeException('Null character is not allowed in PDF Names');
         }
         $this->value   = (string)$val;

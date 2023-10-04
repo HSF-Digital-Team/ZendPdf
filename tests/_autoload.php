@@ -21,7 +21,7 @@ After that, you should be able to run tests.');
 
 
 spl_autoload_register(function ($class) {
-    if (0 !== strpos($class, 'ZendServiceTest\\')) {
+    if (0 !== strpos((string) $class, 'ZendServiceTest\\')) {
         return false;
     }
     $normalized = str_replace('ZendServiceTest\\', '', $class);
