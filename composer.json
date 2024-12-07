@@ -20,7 +20,6 @@
         }
     ],
     "require": {
-        "php": "~7.4.0||~8.1.0||~8.2.0",
         "zendframework/zend-memory": ">=2.0.0",
         "laminas/laminas-stdlib": "*"
     },
